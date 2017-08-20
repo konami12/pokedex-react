@@ -1,0 +1,48 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Pokedex que nos permite listar los primeros 150 pokemons",
+  "engines": {
+    "node": "6.10.2",
+    "npm": "3.10.10"
+  },
+  "main": "./App/Server.js",
+  "scripts": {
+    "postinstall": "gulp compile-less | npm start",
+    "start": "babel-node ./App/Server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/konami12/pokedex-react.git"
+  },
+  "keywords": [
+    "Pokedex",
+    "react",
+    "node",
+    "javascript",
+    "taller"
+  ],
+  "author": "jmendez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/konami12/pokedex-react/issues"
+  },
+  "homepage": "https://github.com/konami12/pokedex-react#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^3.3.7",
+    "bootswatch": "^3.3.7",
+    "cli-color": "^1.2.0",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-less": "^3.3.2"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "pug": "^2.0.0-rc.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  }
+}

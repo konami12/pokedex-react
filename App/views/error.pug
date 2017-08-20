@@ -1,0 +1,35 @@
+doctype html
+html(lang="es")
+    head
+        include commons/metas.pug
+    body
+        //- Begin : modal
+        div.modal(style="display: block;")
+            div.modal-dialog
+                
+                div.modal-content
+                    
+                    //- Begin : Header modal
+                    div.modal-header.bg-primary
+                        h3.modal-title
+                            strong Error 404
+                    //- End   : Header modal
+                    
+                    //- Begin : Body modal
+                    div.modal-body
+                        div.row
+                            div.col-md-3.aux-content
+                                img.error-404(src=`${path}/img/pokemons/gengar.jpg`)
+                            div.col-md-9.aux-content.alert.alert-dismissible.alert-danger
+                                p
+                                    strong.text-primary.aux No se puede resolver la URL 
+                                p
+                                    strong.text-info.aux "!{url}"
+                    //- End   : Body modal
+                    
+                    //- Begin : Footer modal
+                    div.modal-footer
+                        a.btn.btn-primary(href="/") 
+                            strong Pókedex
+                    //- End   : Footer modal
+        //- End   : modal.
