@@ -1,0 +1,8 @@
+{
+  "name": "Pokedex",
+  "description": "Taller de jugando con JavaScript",
+  "repository": "https://github.com/konami12/pokedex",
+  "logo": "https://www.iconfinder.com/icons/214848/download/svg/128",
+  "keywords": ["node", "express", "react", "pug", "pokemon"],
+  "image": "heroku/nodejs"
+}

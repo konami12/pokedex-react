@@ -17,7 +17,7 @@ export default {
     /**
      * Puerto que escuchara nuestro servidor.
      */
-    port        : 81,
+    port        : process.env.PORT || 81,
     /**
      * Nombre del motro de vistas que se utilizara.
      */
