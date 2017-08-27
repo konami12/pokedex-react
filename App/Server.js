@@ -30,10 +30,6 @@ const SERVER = Express();
 
 //======================= VIEW ENGINE =======================//
 
-SERVER.set("port", CONFIG_APP.port);
-
-//======================= VIEW ENGINE =======================//
-
 //Se indica de donde se tomaran las vistas.
 SERVER.set("views", CONFIG_APP.path_views);
 
@@ -43,7 +39,7 @@ SERVER.set("view engine", CONFIG_APP.view_engine, {path:5});
 //==================== ARCHIVOS STATICOS ====================//
 
 //permite indicar donde estaran los archivos estaticos del servidor.
-SERVER.use(Express.static(`${__dirname}${CONFIG_APP.path_public}`));
+SERVER.use(Express.static(CONFIG_APP.path_public));
 
 //===================== MANEJO DE RUTAS ======================//
 
@@ -61,7 +57,7 @@ SERVER.use(Core.Router);
  *
  * return void.
  */
-SERVER.listen(SERVER.get("port"), (error) => {
+SERVER.listen( CONFIG_APP.port, CONFIG_APP.domain ,(error) => {
 
     HELPERS.msg("Iniciando el servidor", 'i');
     if (error)
