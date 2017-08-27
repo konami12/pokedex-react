@@ -43,13 +43,12 @@ SERVER.set("view engine", CONFIG_APP.view_engine, {path:5});
 //==================== ARCHIVOS STATICOS ====================//
 
 //permite indicar donde estaran los archivos estaticos del servidor.
-SERVER.use(Express.static(CONFIG_APP.path_public));
+SERVER.use(Express.static(`${__dirname}${CONFIG_APP.path_public}`));
 
 //===================== MANEJO DE RUTAS ======================//
 
 //manejo de rutas las cuales probienen del archivo Router
 SERVER.use(Core.Router);
-
 
 //====================== INICIALIZACION ======================//
 
@@ -62,7 +61,7 @@ SERVER.use(Core.Router);
  *
  * return void.
  */
-SERVER.listen(SERVER.get("port"), CONFIG_APP.port, CONFIG_APP.domain ,(error) => {
+SERVER.listen(SERVER.get("port"), (error) => {
 
     HELPERS.msg("Iniciando el servidor", 'i');
     if (error)
