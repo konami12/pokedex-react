@@ -11,22 +11,26 @@ import Core from "./core/";
 
 /**
  * Se carga la referencia a la clase helpers.
- * 
+ *
  * @type Class.
  */
 const HELPERS = Core.Helpers;
 /**
  * Se consigue los valores de la configuracion.
- * 
+ *
  * @type JSON
  */
 const CONFIG_APP = Core.Config;
 /**
  * Referencia a express.
- * 
+ *
  * @type express
  */
 const SERVER = Express();
+
+//======================= VIEW ENGINE =======================//
+
+SERVER.set("port", CONFIG_APP.port);
 
 //======================= VIEW ENGINE =======================//
 
@@ -46,6 +50,7 @@ SERVER.use(Express.static(CONFIG_APP.path_public));
 //manejo de rutas las cuales probienen del archivo Router
 SERVER.use(Core.Router);
 
+
 //====================== INICIALIZACION ======================//
 
 /**
@@ -57,7 +62,7 @@ SERVER.use(Core.Router);
  *
  * return void.
  */
-SERVER.listen( CONFIG_APP.port, CONFIG_APP.domain ,(error) => {
+SERVER.listen(SERVER.get("port"), CONFIG_APP.port, "pokedex-taller.herokuapp.com" ,(error) => {
 
     HELPERS.msg("Iniciando el servidor", 'i');
     if (error)
@@ -66,7 +71,7 @@ SERVER.listen( CONFIG_APP.port, CONFIG_APP.domain ,(error) => {
         process.exit(1);
         return;
     }//if
-    else 
+    else
     {
         HELPERS.msg(`Servidor listo en ${process.env.DOMAIN}`, 's');
     }
