@@ -1,1 +1,1 @@
-web: $(npm bin) ./App/Server.js
+web: node index.js

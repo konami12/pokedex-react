@@ -6,9 +6,9 @@
     "node": "6.10.2",
     "npm": "3.10.10"
   },
-  "main": "./App/Server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "babel-node ./App/Server.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
     "bootstrap": "^3.3.7",
     "bootswatch": "^3.3.7",
     "cli-color": "^1.2.0",
