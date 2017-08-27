@@ -1,8 +1,18 @@
-/*
- * Module dependencies
- */
-import Express from "express";
-import Helpers from "./Helpers";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _express = require("express");
+
+var _express2 = _interopRequireDefault(_express);
+
+var _Helpers = require("./Helpers");
+
+var _Helpers2 = _interopRequireDefault(_Helpers);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //======================== CONSTANTES ========================//
 
@@ -11,25 +21,28 @@ import Helpers from "./Helpers";
  * 
  * @type Express.router
  */
-const ROUTER = Express.Router();
+/*
+ * Module dependencies
+ */
+var ROUTER = _express2.default.Router();
 /**
  * Rutas generales.
  * 
  * @type Array.
  */
-const URL_1 = '/';
-const URL_2 = '/pokedex';
+var URL_1 = '/';
+var URL_2 = '/pokedex';
 /**
  * Listad de rutas.
  * 
  * @type JSON
  */
-const FULL_URLS = {
-                    home        : [URL_1, URL_2], 
-                    filter_type : [`${URL_1}type/:pokemon_type`, `${URL_2}/type/:pokemon_type`],
-                    filter_name : [`${URL_1}pokemon/:pokemon_name`, `${URL_2}/pokemon/:pokemon_name`],
-                    votacion    : [`${URL_1}votacion/:pokemon_name`, `${URL_2}/votacion/:pokemon_name`]
-                  };
+var FULL_URLS = {
+  home: [URL_1, URL_2],
+  filter_type: [URL_1 + "type/:pokemon_type", URL_2 + "/type/:pokemon_type"],
+  filter_name: [URL_1 + "pokemon/:pokemon_name", URL_2 + "/pokemon/:pokemon_name"],
+  votacion: [URL_1 + "votacion/:pokemon_name", URL_2 + "/votacion/:pokemon_name"]
+};
 
 //===================== MANEJO DE RUTAS ======================//
 
@@ -41,13 +54,13 @@ const FULL_URLS = {
  * 
  * @return void.
  */
-ROUTER.get(FULL_URLS.home, (request, response) => {
-    //mensaje que se mostrara en consola.
-    Helpers.msg("Solicitando Homepage", 's');
-    //status de la respuesta
-    response.status(200);
-    //respuesta de la petcion
-    response.render("home", {title : "Home Page", path : process.env.DOMAIN});
+ROUTER.get(FULL_URLS.home, function (request, response) {
+  //mensaje que se mostrara en consola.
+  _Helpers2.default.msg("Solicitando Homepage", 's');
+  //status de la respuesta
+  response.status(200);
+  //respuesta de la petcion
+  response.render("home", { title: "Home Page", path: process.env.DOMAIN });
 });
 
 //============================================================//
@@ -60,14 +73,13 @@ ROUTER.get(FULL_URLS.home, (request, response) => {
  * 
  * @return void.
  */
-ROUTER.get(FULL_URLS.filter_type, (request, response) => {
-    //mensaje que se mostrara en consola.
-    Helpers.msg(`Filtrado pokemons por ${request.params.pokemon_type}`, 's');
-    //status de la respuesta
-    response.status(200);
-    //respuesta de la petcion
-    response.render("home", {title : `Tipo ${request.params.pokemon_type}`, path : process.env.DOMAIN});
-
+ROUTER.get(FULL_URLS.filter_type, function (request, response) {
+  //mensaje que se mostrara en consola.
+  _Helpers2.default.msg("Filtrado pokemons por " + request.params.pokemon_type, 's');
+  //status de la respuesta
+  response.status(200);
+  //respuesta de la petcion
+  response.render("home", { title: "Tipo " + request.params.pokemon_type, path: process.env.DOMAIN });
 });
 
 //============================================================//
@@ -80,13 +92,13 @@ ROUTER.get(FULL_URLS.filter_type, (request, response) => {
  * 
  * @return void.
  */
-ROUTER.get(FULL_URLS.filter_name, (request, response) => {
-    //mensaje que se mostrara en consola.
-    Helpers.msg(`Buscando a ${request.params.pokemon_name}`, 's');
-    //status de la respuesta
-    response.status(200);
-    //respuesta de la petcion
-    response.render("home", {title : `Pokemon ${request.params.pokemon_name}`, path : process.env.DOMAIN});
+ROUTER.get(FULL_URLS.filter_name, function (request, response) {
+  //mensaje que se mostrara en consola.
+  _Helpers2.default.msg("Buscando a " + request.params.pokemon_name, 's');
+  //status de la respuesta
+  response.status(200);
+  //respuesta de la petcion
+  response.render("home", { title: "Pokemon " + request.params.pokemon_name, path: process.env.DOMAIN });
 });
 
 //============================================================//
@@ -99,13 +111,13 @@ ROUTER.get(FULL_URLS.filter_name, (request, response) => {
  * 
  * @return void.
  */
-ROUTER.get(FULL_URLS.votacion, (request, response) => {
-    //mensaje que se mostrara en consola.
-    Helpers.msg(`Votando por  ${request.params.pokemon_name}`, 's');
-    //status de la respuesta
-    response.status(200);
-    //respuesta de la petcion
-    response.render("home", {title : `Votando por ${request.params.pokemon_name}`, path : process.env.DOMAIN});
+ROUTER.get(FULL_URLS.votacion, function (request, response) {
+  //mensaje que se mostrara en consola.
+  _Helpers2.default.msg("Votando por  " + request.params.pokemon_name, 's');
+  //status de la respuesta
+  response.status(200);
+  //respuesta de la petcion
+  response.render("home", { title: "Votando por " + request.params.pokemon_name, path: process.env.DOMAIN });
 });
 
 //============================================================//
@@ -118,14 +130,14 @@ ROUTER.get(FULL_URLS.votacion, (request, response) => {
  * 
  * @return void.
  */
-ROUTER.use((request, response) => {
-    let url = `${process.env.DOMAIN}${request.url}`;
-    //mensaje que se mostrara en consola.
-    Helpers.msg(`solicitando ${request.path}`, 'e');
-    //status de la respuesta
-    response.status(404);
-    //respuesta de la petcion
-    response.render("error", {url : url, title : "Error - 404", path : process.env.DOMAIN});
+ROUTER.use(function (request, response) {
+  var url = "" + process.env.DOMAIN + request.url;
+  //mensaje que se mostrara en consola.
+  _Helpers2.default.msg("solicitando " + request.path, 'e');
+  //status de la respuesta
+  response.status(404);
+  //respuesta de la petcion
+  response.render("error", { url: url, title: "Error - 404", path: process.env.DOMAIN });
 });
 
 //============================================================//
@@ -133,4 +145,4 @@ ROUTER.use((request, response) => {
 /**
  * Se exporta el router.
  */
-export default ROUTER;
+exports.default = ROUTER;
