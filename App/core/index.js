@@ -10,7 +10,7 @@ import Router from "./Router";
 /**
  * Variable de entorno.
  */
-process.env.DOMAIN = `http://${Config.domain}:${Config.port}`;
+process.env.DOMAIN = `https://${Config.domain}:${Config.port}`;
 
 //===================================================//
 

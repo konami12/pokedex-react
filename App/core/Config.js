@@ -5,7 +5,7 @@ export default {
     /**
      * Domino en el que se desplegara nuestro pokedex.
      */
-    domain      : "localhost",
+    domain      : process.env.PORT ? "pokedex-taller.herokuapp.com" : "localhost",
     /**
      * Ruta en la que estaran nuestros CSS, JS y imagenes.
      */

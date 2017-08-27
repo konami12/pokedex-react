@@ -62,7 +62,7 @@ SERVER.use(Core.Router);
  *
  * return void.
  */
-SERVER.listen(SERVER.get("port"), CONFIG_APP.port, "pokedex-taller.herokuapp.com" ,(error) => {
+SERVER.listen(SERVER.get("port"), CONFIG_APP.port, CONFIG_APP.domain ,(error) => {
 
     HELPERS.msg("Iniciando el servidor", 'i');
     if (error)
