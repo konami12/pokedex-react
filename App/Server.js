@@ -11,19 +11,19 @@ import Core from "./core/";
 
 /**
  * Se carga la referencia a la clase helpers.
- * 
+ *
  * @type Class.
  */
 const HELPERS = Core.Helpers;
 /**
  * Se consigue los valores de la configuracion.
- * 
+ *
  * @type JSON
  */
 const CONFIG_APP = Core.Config;
 /**
  * Referencia a express.
- * 
+ *
  * @type express
  */
 const SERVER = Express();
@@ -66,7 +66,7 @@ SERVER.listen( CONFIG_APP.port, CONFIG_APP.domain ,(error) => {
         process.exit(1);
         return;
     }//if
-    else 
+    else
     {
         HELPERS.msg(`Servidor listo en ${process.env.DOMAIN}`, 's');
     }

@@ -19,7 +19,9 @@ html(lang="es")
                     div.modal-body
                         div.row
                             div.col-md-3.aux-content
-                                img.error-404(src=`${path}/img/pokemons/gengar.jpg`)
+                                img.error-404(src=`${global.DOMAIN}/${pokemon}`)
+                                p.text-success 
+                                    strong !{name}
                             div.col-md-9.aux-content.alert.alert-dismissible.alert-danger
                                 p
                                     strong.text-primary.aux No se puede resolver la URL 
